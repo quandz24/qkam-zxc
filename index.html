@@ -80,6 +80,7 @@
 
       #corner-click-zone {
         position: absolute;
+        background: #007bff;
         top: 0;
         left: 0;
         width: 120px;
@@ -1782,7 +1783,7 @@
         height: 80px;
         font-size: 18px;
         cursor: pointer;
-        background-color: white;
+        background: white;
         border: 2px solid rgb(225, 225, 225);
         border-radius: 15px;
         transition: all 0.3s ease;
@@ -1846,7 +1847,7 @@
   </head>
   <body>
     <div id="corner-click-zone"></div>
-    <div id="loading-screen2">Thats joke</div>
+    <div id="loading-screen2">Web not found</div>
     <div id="loading-screen">
       <div class="spinner"></div>
       <p>Loading OriginOS V1.2.00 beta 4</p>
@@ -3901,9 +3902,9 @@
             aod_option.style.color = "#eaeaea";
             wallpaper_option.style.color = "#eaeaea";
 
-            document.querySelectorAll(".scale-button").forEach((el) => {
-              el.style.color = "#ffffff";
+            document.querySelectorAll(".button-finger").forEach((el) => {
               el.style.background = "#171719";
+              el.style.color = "#ffffff";
             });
 
             document.querySelector(".khaysetting1").style.background =
@@ -3992,6 +3993,11 @@
 
             document.querySelectorAll(".scale-button").forEach((el) => {
               el.style.color = "#000000";
+              el.style.background = "#ffffff";
+            });
+
+            document.querySelectorAll(".button-finger").forEach((el) => {
+              el.style.color = "#171719";
               el.style.background = "#ffffff";
             });
 
