@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <meta name="color-scheme" content="light" />
-    <title>hahaha</title>
+    <title>OriginOS</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;300;400&display=swap"
       rel="stylesheet"
@@ -36,7 +36,8 @@
       * {
         -webkit-tap-highlight-color: transparent;
       }
-      body {
+      body,
+      html {
         margin: 0;
         padding: 0;
         height: 100vh;
@@ -51,29 +52,6 @@
         touch-action: none;
       }
 
-      #loading-screen2 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #353535;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        z-index: 9999999;
-      }
-
-      #corner-click-zone {
-        position: absolute;
-        top: 0px;
-        left: 0;
-        width: 120px;
-        height: 120px;
-        z-index: 99999999;
-        cursor: pointer;
-      }
       .phone {
         width: 330px;
         height: 700px;
@@ -1192,7 +1170,8 @@
         z-index: 123;
       }
       .speed-box.active {
-        border: 2px solid #000000;
+        border: 2px solid aqua;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
       }
       .box-wrapper {
         position: relative;
@@ -1300,7 +1279,7 @@
         aspect-ratio: 9/16;
         border-radius: 14px;
         overflow: hidden;
-        border: 3px solid transparent;
+        border: 3px solid gray;
         cursor: pointer;
         transition: border 0.2s ease;
         position: relative;
@@ -1315,6 +1294,7 @@
       .img-button.active {
         border-color: rgb(0, 217, 255);
         color: rgb(0, 217, 255);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
       }
       .add-button {
         display: flex;
@@ -1322,7 +1302,8 @@
         justify-content: center;
         font-size: 48px;
         color: rgb(0, 0, 0);
-        background: #fff;
+        background: #ffffff;
+        border: 3px solid gray;
       }
       input[type="file"] {
         display: none;
@@ -1459,9 +1440,6 @@
         cursor: pointer;
         transition: background 0.3s;
         border: 2px solid rgb(255, 255, 255);
-      }
-      .top-buttons button:hover {
-        background: #f0f0f0;
       }
       .wallpaper2 {
         position: absolute;
@@ -1831,8 +1809,6 @@
       }
     </style>
   </head>
-  <div id="corner-click-zone"></div>
-  <div id="loading-screen2">haha</div>
   <body>
     <div id="loading-screen">
       <div class="spinner"></div>
@@ -2253,7 +2229,13 @@
                 <div class="wallpaper2" id="wallpaper2"></div>
                 <div class="controls">
                   <div class="top-buttons">
-                    <button id="btn1" style="border: 2px solid aqua">
+                    <button
+                      id="btn1"
+                      style="
+                        border: 2px solid aqua;
+                        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+                      "
+                    >
                       Style 1
                     </button>
                     <button id="btn2">Style 2</button>
@@ -3674,7 +3656,10 @@
         wallpaper_lock_opacity = 1;
         wallpaper_lock_transform = "translateY(250px)";
         document.getElementById("btn1").style.border = "2px solid aqua";
+        document.getElementById("btn1").style.boxShadow =
+          "0 0 10px rgba(0, 255, 255, 0.5)";
         document.getElementById("btn2").style.border = "2px solid #ffffff";
+        document.getElementById("btn2").style.boxShadow = "none";
 
         wallpaper2.style.height = `${wallpaper_lock_height}%`;
         wallpaper2.style.scale = `${wallpaper_lock_scale}%`;
@@ -3697,7 +3682,10 @@
         wallpaper_lock_opacity = 1;
         wallpaper_lock_transform = "translateY(0px)";
         document.getElementById("btn2").style.border = "2px solid aqua";
+        document.getElementById("btn2").style.boxShadow =
+          "0 0 10px rgba(0, 255, 255, 0.5)";
         document.getElementById("btn1").style.border = "2px solid #ffffff";
+        document.getElementById("btn1").style.boxShadow = "none";
 
         wallpaper2.style.height = `${wallpaper_lock_height}%`;
         wallpaper2.style.scale = `${wallpaper_lock_scale}%`;
@@ -3855,6 +3843,15 @@
             document.querySelector(".content-box-vesion").style.color =
               "#eaeaea";
 
+            document.querySelector(".add-button").style.background = "#171719";
+            document.querySelector(".add-button").style.color = "#eaeaea";
+            document.querySelector(".controls").style.background =
+              "rgba(0, 0, 0, 0.85)";
+            document.getElementById("btn1").style.background = "#171719";
+            document.getElementById("btn2").style.background = "#171719";
+            document.getElementById("btn1").style.color = "#ffffff";
+            document.getElementById("btn2").style.color = "#ffffff";
+
             app4.style.color = "#eaeaea";
             app4_finger.style.color = "#eaeaea";
             app4_home.style.color = "#eaeaea";
@@ -3905,6 +3902,7 @@
             app4_vesion.style.background = "#eaeaea";
             app4animation.style.background = "#eaeaea";
             app4main.style.background = "#eaeaea";
+            wallpaper_option.style.background = "#eaeaea";
             document.getElementById("app4credits").style.background = "#eaeaea";
 
             for (let i = 1; i <= 11; i++) {
@@ -3972,11 +3970,21 @@
             app4_vesion.style.color = "#010101";
             app4animation.style.color = "#010101";
             app4main.style.color = "#010101";
+            wallpaper_option.style.color = "#010101";
             document.getElementById("app4credits").style.color = "#010101";
 
             document.querySelectorAll(".nav").forEach((el) => {
               el.style.background = "#171719";
             });
+
+            document.querySelector(".add-button").style.background = "#ffffff";
+            document.querySelector(".add-button").style.color = "#000000";
+            document.querySelector(".controls").style.background =
+              "rgba(255, 255, 255, 0.85)";
+            document.getElementById("btn1").style.background = "#ffffff";
+            document.getElementById("btn2").style.background = "#ffffff";
+            document.getElementById("btn1").style.color = "#000000";
+            document.getElementById("btn2").style.color = "#000000";
 
             document.querySelector(".khaysetting1").style.background =
               "#ffffff";
@@ -4379,33 +4387,6 @@
           toast.classList.remove("show");
         }, 3000); // Hiển thị trong 3 giây
       }
-    </script>
-
-    <script>
-      let clickCount = 0;
-      let outsideClickStreak = 0;
-      const cornerZone = document.getElementById("corner-click-zone");
-      const loadingScreen = document.getElementById("loading-screen2");
-
-      cornerZone.addEventListener("click", (e) => {
-        e.stopPropagation();
-        clickCount++;
-        outsideClickStreak = 0;
-        if (clickCount === 10) {
-          setTimeout(() => {
-            loadingScreen.remove();
-          }, 5000);
-        }
-      });
-
-      // Khi click ra ngoài vùng
-      document.body.addEventListener("click", () => {
-        outsideClickStreak++;
-        if (outsideClickStreak >= 3) {
-          clickCount = 0;
-          outsideClickStreak = 0;
-        }
-      });
     </script>
   </body>
 </html>
