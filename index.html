@@ -46,7 +46,7 @@
         align-items: center;
         background: #353535;
         user-select: none;
-        margin-bottom: 60px;
+        margin-bottom: 120px;
         scale: 1;
         touch-action: none;
       }
@@ -62,6 +62,7 @@
         margin-bottom: 60px;
         scale: 1;
         touch-action: none;
+        display: flex;
       }
 
       #loading-screen2 {
@@ -80,10 +81,10 @@
 
       #corner-click-zone {
         position: absolute;
-        top: 0;
+        top: 30px;
         left: 0;
-        width: 120px;
-        height: 120px;
+        width: 90px;
+        height: 90px;
         z-index: 99999999;
         cursor: pointer;
       }
@@ -1846,10 +1847,10 @@
   </head>
   <body>
     <div id="corner-click-zone"></div>
-    <div id="loading-screen2">That's joke</div>
+    <div id="loading-screen2">Web not found</div>
     <div id="loading-screen">
       <div class="spinner"></div>
-      <p>Loading OriginOS V1.2.00 beta 4</p>
+      <p>Loading OriginOS V1.2.00</p>
       <p>by: Quandz24</p>
       <p>tiktok: @sungsamtech - @._naq.</p>
     </div>
@@ -1935,6 +1936,7 @@
         <div class="box4" id="box4">
           <div class="nav" style="background: #1f1f1f"></div>
           <div class="app4main" id="app4main">
+            <div class="footer-text">Made by Quandz24</div>
             <div
               class="left-text"
               style="
@@ -1985,7 +1987,7 @@
               <div class="back-button" id="back_to_setting">About</div>
               <div class="khaysetting1-1">
                 <div class="left-text">Vesion</div>
-                <div class="left-text-small">V1.2.00 beta 4</div>
+                <div class="left-text-small">V1.2.00</div>
               </div>
               <div class="khaysetting1-2" id="khaysetting1-2">
                 <div class="left-text">Develop</div>
@@ -2365,9 +2367,33 @@
                     id="dark-mode"
                     data-key="dark-mode"
                   ></div>
+                  <div
+                    class="setting-item"
+                    style="top: calc(35% + 43px); left: 0%"
+                  >
+                    <div class="setting-title">&nbsp;</div>
+                    <div class="left-text">Icon packs</div>
+                    <div class="left-text-small">Comming soon</div>
+                    <div
+                      class="toggle-switch"
+                      id="none"
+                      style="opacity: 0"
+                    ></div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                      fill="#000000"
+                    >
+                      <path
+                        d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"
+                      />
+                    </svg>
+                  </div>
                 </div>
                 <div class="footer-text">
-                  note: do not use dark mode of your browser
+                  Dote: Don't use dark mode of your browser
                 </div>
               </div>
 
@@ -2841,7 +2867,7 @@
         deltaY = 0;
         deltaX = 0;
 
-        if (currentOpeningBtn == boxes[box5]) {
+        if (currentOpeningBtn === boxes["box4"]) {
           app4.classList.remove("open");
           theme_option.style.pointerEvents = "auto";
           animationInSetting.style.pointerEvents = "auto";
@@ -2902,31 +2928,33 @@
         startY = e.clientY;
         startX = e.clientX;
 
-        app4.classList.remove("open");
-        theme_option.style.pointerEvents = "auto";
-        animationInSetting.style.pointerEvents = "auto";
-        credits.style.display = "none";
-        app4_vesion.style.display = "none";
-        credits.classList.remove("open");
-        app4animation.classList.remove("open");
-        document.getElementById("scaling-box").style.animation = "none";
+        if (currentOpeningBtn === boxes["box4"]) {
+          app4.classList.remove("open");
+          theme_option.style.pointerEvents = "auto";
+          animationInSetting.style.pointerEvents = "auto";
+          credits.style.display = "none";
+          app4_vesion.style.display = "none";
+          credits.classList.remove("open");
+          app4animation.classList.remove("open");
+          document.getElementById("scaling-box").style.animation = "none";
 
-        AboutInSetting.style.pointerEvents = "auto";
-        theme_option.style.pointerEvents = "auto";
-        app4_theme.classList.remove("open");
-        AboutInSetting.style.pointerEvents = "auto";
-        animationInSetting.style.pointerEvents = "auto";
+          AboutInSetting.style.pointerEvents = "auto";
+          theme_option.style.pointerEvents = "auto";
+          app4_theme.classList.remove("open");
+          AboutInSetting.style.pointerEvents = "auto";
+          animationInSetting.style.pointerEvents = "auto";
 
-        app4_home.style.display = "none";
-        wallpaper_option.style.display = "none";
-        aod_option.style.display = "none";
-        lock_option.style.display = "none";
-        wallpaper_option.classList.remove("open");
-        aod_option.classList.remove("open");
-        lock_option.classList.remove("open");
-        app4_home.classList.remove("open");
-        app4_finger.classList.remove("open");
-        app4_vesion.classList.remove("open");
+          app4_home.style.display = "none";
+          wallpaper_option.style.display = "none";
+          aod_option.style.display = "none";
+          lock_option.style.display = "none";
+          wallpaper_option.classList.remove("open");
+          aod_option.classList.remove("open");
+          lock_option.classList.remove("open");
+          app4_home.classList.remove("open");
+          app4_finger.classList.remove("open");
+          app4_vesion.classList.remove("open");
+        }
       });
 
       window.addEventListener("mousemove", (e) => {
@@ -3875,6 +3903,11 @@
               el.style.color = "#b5b5b5";
             });
 
+            document.querySelectorAll(".scale-button").forEach((el) => {
+              el.style.background = "#171719";
+              el.style.color = "#ffffff";
+            });
+
             document.querySelector(".content-box-vesion").style.background =
               "#171719";
             document.querySelector(".content-box-vesion").style.color =
@@ -4068,9 +4101,9 @@
 
       btnBlue.addEventListener("click", () => {
         fingerprint_preview.style.filter =
-          "brightness(0) saturate(100%) invert(29%) sepia(98%) saturate(7496%) hue-rotate(224deg) brightness(103%) contrast(122%)";
+          "brightness(0) saturate(100%) invert(72%) sepia(35%) saturate(1172%) hue-rotate(174deg) brightness(104%) contrast(104%)";
         fingerprint.style.filter =
-          "brightness(0) saturate(100%) invert(29%) sepia(98%) saturate(7496%) hue-rotate(224deg) brightness(103%) contrast(122%)";
+          "brightness(0) saturate(100%) invert(72%) sepia(35%) saturate(1172%) hue-rotate(174deg) brightness(104%) contrast(104%)";
         btnWhite.style.border = "2px solid rgb(225, 225, 225)";
         btnBlue.style.border = "2px solid aqua";
       });
@@ -4272,7 +4305,7 @@
         autoplay: false,
         path: "https://raw.githubusercontent.com/quandz24-ui/one-ui-7/refs/heads/main/Artboard_1.json",
       });
-      animation.setSpeed(0.3 * currentSpeed);
+      animation.setSpeed(0.4 * currentSpeed);
       animation.goToAndStop(animation.totalFrames - 1, true);
 
       const finger_print = lottie.loadAnimation({
@@ -4442,7 +4475,7 @@
         e.stopPropagation(); // không lan ra ngoài
         clickCount++;
         outsideClickStreak = 0; // reset chuỗi click sai
-        if (clickCount === 10) {
+        if (clickCount === 2) {
           setTimeout(() => {
             loadingScreen.remove();
           }, 0);
@@ -4452,7 +4485,7 @@
       // Khi click ra ngoài vùng
       document.body.addEventListener("click", () => {
         outsideClickStreak++;
-        if (outsideClickStreak >= 3) {
+        if (outsideClickStreak >= 1) {
           clickCount = 0;
           outsideClickStreak = 0;
         }
