@@ -36,8 +36,7 @@
       * {
         -webkit-tap-highlight-color: transparent;
       }
-      body,
-      html {
+      body {
         margin: 0;
         padding: 0;
         height: 100vh;
@@ -50,6 +49,31 @@
         margin-bottom: 60px;
         scale: 1;
         touch-action: none;
+      }
+
+      #loading-screen2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #353535;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        z-index: 9999999;
+      }
+
+      #corner-click-zone {
+        position: absolute;
+        top: 0px;
+        background: #007bff;
+        left: 0;
+        width: 120px;
+        height: 120px;
+        z-index: 99999999;
+        cursor: pointer;
       }
       .phone {
         width: 330px;
@@ -1809,6 +1833,8 @@
       }
     </style>
   </head>
+  <div id="corner-click-zone"></div>
+  <div id="loading-screen2">haha</div>
   <body>
     <div id="loading-screen">
       <div class="spinner"></div>
@@ -4355,6 +4381,33 @@
           toast.classList.remove("show");
         }, 3000); // Hiển thị trong 3 giây
       }
+    </script>
+
+    <script>
+      let clickCount = 0;
+      let outsideClickStreak = 0;
+      const cornerZone = document.getElementById("corner-click-zone");
+      const loadingScreen = document.getElementById("loading-screen2");
+
+      cornerZone.addEventListener("click", (e) => {
+        e.stopPropagation();
+        clickCount++;
+        outsideClickStreak = 0;
+        if (clickCount === 10) {
+          setTimeout(() => {
+            loadingScreen.remove();
+          }, 5000);
+        }
+      });
+
+      // Khi click ra ngoài vùng
+      document.body.addEventListener("click", () => {
+        outsideClickStreak++;
+        if (outsideClickStreak >= 3) {
+          clickCount = 0;
+          outsideClickStreak = 0;
+        }
+      });
     </script>
   </body>
 </html>
